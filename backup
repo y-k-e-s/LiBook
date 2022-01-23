@@ -1,0 +1,67 @@
+public <E extends Object> List<Book> search(E title, E author, E genre) {
+		List<E> list = Arrays.asList(title, author, genre);
+		int value = 0;
+		for (E e : list) {
+			if (e != null && !e.toString().isBlank()) {
+				value++;
+				System.out.println(value);
+			}
+		}
+		List<Book> searchResult = new ArrayList<>();
+		/*
+		 * 3 -> search by title and author and genre 
+		 * 2 -> if(title == null) search by author and genre etc...
+		 * 1 -> if(title != null) search by title etc...
+		 */
+		if (value == 3) {
+			for (Book b : Dao.getInstance().getBookList()) {
+				if (b.getAuthor().contains(author.toString()) && b.getTitle().contains(title.toString()) && b.getBookGenre().equals(genre)) {
+					searchResult.add(b);
+				}
+			}
+		} else if (value == 2) {
+			if (title.toString().isBlank()) {
+				for (Book b : Dao.getInstance().getBookList()) {
+					if (b.getAuthor().contains(author.toString()) && b.getBookGenre().equals(genre)) {
+						searchResult.add(b);
+					}
+				}
+			} else if (author.toString().isBlank()) {
+				for (Book b : Dao.getInstance().getBookList()) {
+					if (b.getTitle().contains(title.toString()) && b.getBookGenre().equals(genre)) {
+						searchResult.add(b);
+					}
+				}
+			} else {
+				for (Book b : Dao.getInstance().getBookList()) {
+					if (b.getAuthor().contains(author.toString()) && b.getTitle().contains(title.toString())) {
+						searchResult.add(b);
+					}
+				}
+			}
+
+		} else if(value == 1){
+			if (!title.toString().isBlank()) {
+				for (Book b : Dao.getInstance().getBookList()) {
+					if (b.getTitle().contains(title.toString())) {
+						searchResult.add(b);
+					}
+				}
+			} else if (!author.toString().isBlank()) {
+				for (Book b : Dao.getInstance().getBookList()) {
+					if (b.getAuthor().contains(author.toString())) {
+						searchResult.add(b);
+					}
+				}
+			} else {
+				for (Book b : Dao.getInstance().getBookList()) {
+					if (b.getBookGenre().equals(genre)) {
+						searchResult.add(b);
+					}
+				}
+			}
+		}else {
+			searchResult.addAll(Dao.getInstance().getBookList());
+		}
+		return searchResult;
+	}
