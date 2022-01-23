@@ -141,23 +141,6 @@ public class BrowseController extends HttpServlet implements Observer{
 		return false;
 	}
 
-	public static void main(String[] args) {
-		
-		UserBookManager.getInstance().loadData();
-		ArrayList<Book> bList = new ArrayList<>();
-		for(UserBook ub : Dao.getInstance().getBorrowedBooks()) {
-			bList.add(ub.getBook());
-			System.out.println(bList);
-		}
-		/*
-		UserBookManager.getInstance().loadData();
-		ArrayList<Book> list = new ArrayList<>();
-		list.addAll(DummyController.getInstance().getCurrentBookList());
-		for (Book book : list) {
-			System.out.println(book.getTitle());
-		}
-		*/
-	}
 	public static Set<Book> getCurrentBookList() {
 		return currentBookList;
 	}
