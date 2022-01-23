@@ -1,7 +1,7 @@
 # LiBook
 work in progress version
 
-Simple library system wrote in Java, integrated with MySql data base.
+Simple library system writen in Java, integrated with MySql data base.
 
 For normal users(clients) functionality includes: browsing through books, searching, sorting, borrowing, and giving back books. 
 
