@@ -1,12 +1,9 @@
 package controllers;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-import java.util.TreeSet;
-
 import constants.BookGenre;
 import entites.Book;
 import entites.User;
@@ -85,7 +82,7 @@ public class BrowseController extends HttpServlet implements Observer{
 					bookGenre = bg;
 				}
 			}
-			ArrayList<Book> list = (ArrayList<Book>)DummyController.getInstance().search(title, author, bookGenre);			
+			ArrayList<Book> list = (ArrayList<Book>)search(title, author, bookGenre);			
 			request.setAttribute("list", list);
 			RequestDispatcher dispatcher = request.getRequestDispatcher("main_page.jsp");
 			dispatcher.forward(request, response);
@@ -140,7 +137,11 @@ public class BrowseController extends HttpServlet implements Observer{
 		}
 		return false;
 	}
-
+	
+	public List<Book> search(String title, String author, BookGenre genre) {
+		return BookManager.getInstance().search(title, author, genre);
+	}
+	
 	public static Set<Book> getCurrentBookList() {
 		return currentBookList;
 	}

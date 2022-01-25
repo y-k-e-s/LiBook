@@ -3,9 +3,7 @@ package model.managers;
 import java.util.ArrayList;
 
 import controllers.BrowseController;
-import controllers.DummyController;
 import entites.Admin;
-import entites.Book;
 import entites.Client;
 import entites.User;
 import entites.UserBook;

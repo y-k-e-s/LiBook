@@ -4,13 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.Future;
-
 import constants.BookGenre;
 import controllers.BrowseController;
-import controllers.DummyController;
 import entites.Book;
 import entites.User;
 import entites.UserBook;

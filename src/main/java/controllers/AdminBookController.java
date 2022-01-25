@@ -49,11 +49,16 @@ public class AdminBookController extends HttpServlet {
 		} else if (request.getServletPath().contains("createBook")) {
 			String title = request.getParameter("title");
 			String author = request.getParameter("author");
-			String imageUrl = request.getParameter("imageUrl");
+			String imageUrl = request.getParameter("imageUrl");			
 			String pubYear = request.getParameter("pubYear");
-			int publishYear = Integer.valueOf(pubYear);
-			String language = request.getParameter("language");
+			int publishYear;
+			if(pubYear.isEmpty()) {
+				publishYear = 0000;
+			}else {
+				publishYear = Integer.valueOf(pubYear);
+			}
 
+			String language = request.getParameter("language");
 			String genre = request.getParameter("select");
 			BookGenre bookGenre = null;
 			for (BookGenre bg : BookGenre.values()) {

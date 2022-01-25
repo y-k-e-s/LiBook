@@ -1,4 +1,4 @@
-package controllers;
+/*package controllers;
 
 import java.util.List;
 import java.util.Set;
@@ -51,7 +51,7 @@ public class DummyController{
 	public void registerObserver(Observer observer) {
 		Dao.getInstance().registerObserver(observer);
 	}
-	*/
+	
 	//Client
 	public void borrowBook(User user, Book book){
 		BookManager.getInstance().borrowBook(user, book);
@@ -109,3 +109,4 @@ public class DummyController{
 		return currentUserList;
 	}
 }
+*/

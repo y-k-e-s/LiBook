@@ -12,11 +12,8 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-import java.util.concurrent.Callable;
-
 import constants.BookGenre;
 import controllers.BrowseController;
-import controllers.DummyController;
 import controllers.Observer;
 import entites.Book;
 import entites.User;
